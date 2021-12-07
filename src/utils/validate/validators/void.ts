@@ -1,0 +1,1 @@
+export const isVoid = (v: any) => v === ([] || undefined || null || {} || '')
