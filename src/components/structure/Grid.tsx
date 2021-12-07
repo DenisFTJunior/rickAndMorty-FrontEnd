@@ -17,9 +17,9 @@ const generateStyle = ({ columns, rows, areas, gap, justify, align }: Props) => 
     place-content: center;
 `)
 
-const FlexItem = (props: Props) => {
+const Grid = (props: Props) => {
     const style = generateStyle(props)
     return < div className={style} >{props.children}</div>
 }
 
-export default FlexItem
+export default Grid

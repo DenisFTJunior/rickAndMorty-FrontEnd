@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from "react"
 
 import useCharacterQuery from "../../../../utils/graphql/query/rickAndMorty/character"
-import { Character } from "../../../../utils/graphql/query/rickAndMorty/types"
+import { Character } from "../../../../utils/graphql/query/rickAndMorty/schema"
 
 const Context = createContext({} as Character | undefined)
 const { Provider } = Context

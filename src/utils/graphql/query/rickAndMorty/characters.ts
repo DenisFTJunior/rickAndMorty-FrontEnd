@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client'
 import { RickAndMortyClient } from '../../config/client';
-import { Characters } from './types'
+import { Characters } from './schema'
 
 const QUERY = gql`
   query Characters {
