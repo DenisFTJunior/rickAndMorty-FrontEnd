@@ -3,18 +3,18 @@ import React, { MouseEvent } from "react"
 
 interface Props extends StyleProps {
     onClick: Function,
-    children: JSX.Element[] | JSX.Element,
-    disabled: boolean
+    children?: JSX.Element[] | JSX.Element,
+    disabled?: boolean
 }
 
 interface StyleProps {
-    disabled: boolean,
-    underline: boolean,
-    hoverColor: string,
-    color: string,
+    disabled?: boolean,
+    underline?: boolean,
+    hoverColor?: string,
+    color?: string,
     bgColor: string,
-    display: string,
-    hoverOpacity: string | number,
+    display?: string,
+    hoverOpacity?: string | number,
 }
 
 const generateStyle = ({ underline, color, bgColor, disabled, hoverColor, hoverOpacity, display }: StyleProps) => css`
@@ -32,10 +32,10 @@ const generateStyle = ({ underline, color, bgColor, disabled, hoverColor, hoverO
     ${disabled ? 'opacity: .3;' : ''}
 `
 
-const Link = ({ onClick, children, disabled, ...props }: Props) => {
+const Button = ({ onClick, children, disabled, ...props }: Props) => {
     const handleClick = disabled ? () => { } : (e: MouseEvent) => onClick(e)
     const style = generateStyle({ disabled, ...props })
     return <button className={style} onClick={handleClick}{...props}>{children}</button>
 }
 
-export default Link
+export default Button

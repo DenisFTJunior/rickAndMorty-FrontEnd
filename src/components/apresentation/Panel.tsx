@@ -7,21 +7,27 @@ const boxShadow = [
     '0px 0px 11px 6px rgba(0,0,0,0.77)'
 ]
 
-interface Props {
-    density?: number,
-    border?: string,
+interface Props extends StyleProps {
+
     children: JSX.Element[] | JSX.Element
 }
 
-const generateStyle = ({ density = 0, border }: Props) => css(`
+interface StyleProps {
+    density?: number,
+    border?: string,
+    width?: string,
+}
+
+const generateStyle = ({ density = 0, border, width }: StyleProps) => css(`
+    width: ${width || '32rem'}
     box-shadow: ${boxShadow[density]};
     padding: 10px;
     border: ${border ? border : ''};
 `)
 
-const Panel = (props: Props) => {
+const Panel = ({ children, ...props }: Props) => {
     const style = generateStyle(props)
-    return <div className={style}>{props.children}</div>
+    return <div className={style}>{children}</div>
 }
 
 export default Panel
