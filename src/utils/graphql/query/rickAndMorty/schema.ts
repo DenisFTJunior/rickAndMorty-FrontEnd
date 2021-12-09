@@ -4,6 +4,7 @@ export interface Character {
     readonly status: string,
     readonly gender: string,
     readonly image: string,
+    readonly species: string,
     readonly [propName: string]: any
 }
 

@@ -8,7 +8,8 @@ const boxShadow = [
 ]
 
 interface Props {
-    [propName: string]: any,
+    density?: number,
+    border?: string,
     children: JSX.Element[] | JSX.Element
 }
 

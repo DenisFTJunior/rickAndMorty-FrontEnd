@@ -12,12 +12,14 @@ const textSize: any = {
 interface Props {
     color?: string,
     size?: string,
-    element: string
+    underline?: boolean,
+    element?: string
 }
 
-const generateStyle = ({ color, size }: Props) => css(`
+const generateStyle = ({ color, size, underline }: Props) => css(`
     color: ${color ? color : '#222222'}
     size:${size ? textSize[size] : textSize['sm']}
+    text-decoration: ${underline ? 'underline' : 'none'};
 `)
 
 const Text = (props: Props) => {
@@ -36,8 +38,8 @@ const Text = (props: Props) => {
 }
 
 interface WrapperProps extends Props {
-    bold: boolean,
-    italic: boolean,
+    bold?: boolean,
+    italic?: boolean,
     [propName: string]: any
 }
 
