@@ -16,7 +16,7 @@ const style = css(`
 
 const ModalPanel = ({ width, children }: PanelProps) => {
     return (
-        <div>
+        <div className={style}>
             <Panel width={width}>
                 {children}
             </Panel>

@@ -15,13 +15,15 @@ const styleWrapper = css(`
 `)
 
 const ModalWrapper = ({ children, ...props }: WrapperProps) => {
-    <div className={styleWrapper}>
-        <Flex>
-            <Modal {...props}>
-                {children}
-            </Modal>
-        </Flex>
-    </div>
+    return (
+        <div className={styleWrapper}>
+            <Flex>
+                <Modal {...props}>
+                    {children}
+                </Modal>
+            </Flex>
+        </div>
+    )
 }
 
 export default ModalWrapper

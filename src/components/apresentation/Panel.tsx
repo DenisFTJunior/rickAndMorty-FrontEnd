@@ -8,7 +8,6 @@ const boxShadow = [
 ]
 
 interface Props extends StyleProps {
-
     children: JSX.Element[] | JSX.Element
 }
 
