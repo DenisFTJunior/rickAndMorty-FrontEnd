@@ -27,7 +27,7 @@ const Card = ({ character }: Props) => {
                         <Text>{character?.gender}</Text>
                     </FlexItem>
                     <FlexItem flex={1} align='flex-end'>
-                        <Text>{character?.created}</Text>
+                        <Text italic>{character?.created}</Text>
                     </FlexItem>
                 </Flex>
             </Flex>
