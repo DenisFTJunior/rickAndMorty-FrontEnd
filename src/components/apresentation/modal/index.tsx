@@ -1,5 +1,10 @@
+import React from 'react'
+import { Provider } from "react-redux"
+
 import ModalCloseButton from "./ModalCloseButton"
 import ModalWrapper from "./ModalWrapper"
+import modalStore from '../../../utils/redux/modal/store'
+
 
 interface Props {
     children: JSX.Element[] | JSX.Element
@@ -10,10 +15,13 @@ interface Props {
 
 const Modal = ({ children, onClose, color, width }: Props) => {
     return (
-        <ModalWrapper width={width}>
-            <ModalCloseButton color={color} onClick={onClose} />
-            <>{children}</>
-        </ModalWrapper>)
+        <Provider store={modalStore}>
+            <ModalWrapper width={width}>
+                <ModalCloseButton color={color} onClose={onClose} />
+                <>{children}</>
+            </ModalWrapper>
+        </Provider>
+    )
 }
 
 export default Modal

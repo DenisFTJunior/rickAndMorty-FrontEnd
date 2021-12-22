@@ -6,23 +6,25 @@ interface Props extends StyleProps {
 }
 
 interface StyleProps {
-    flex?: string
     shrink?: string
     width?: string
+    height?: string
     align?: string
     margin?: string
+    flex?: number
     grow?: number
     order?: number
 }
 
 
-const generateStyle = ({ flex, align, order, grow, shrink, width, margin }: Props) => css(`
+const generateStyle = ({ flex, align, order, grow, shrink, width, height, margin }: Props) => css(`
     flex: ${flex || 1};
     align-self: ${align || 'center'};
     order: ${order || 0};
     flex-grow: ${grow || 1};
     flex-grow: ${shrink};
     width: ${width || '100%'};
+    height: ${width || '100%'};
     margin: ${margin || `1rem`};
 `)
 

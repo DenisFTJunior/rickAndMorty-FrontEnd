@@ -1,4 +1,4 @@
 export interface CloseButtonProps {
-    onClick?: Function,
+    onClose?: Function,
     color?: string,
 }

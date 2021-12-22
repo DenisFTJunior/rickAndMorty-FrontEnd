@@ -9,7 +9,7 @@ export const useCharactorsState: Function = () => useContext(Context)
 export const useCharactors: Function = () => useCharactorsState()?.charactor
 
 //create fetchMore
-const CharactersLoader = ({ children }: { children: JSX.Element }) => {
+const CharactersLoader = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   const { data, loading, error } = useCharactersQuery()
 
   if (loading) return <>Loading...</>

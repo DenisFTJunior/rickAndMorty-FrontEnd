@@ -9,24 +9,27 @@ const boxShadow = [
 
 interface Props extends StyleProps {
     children: JSX.Element[] | JSX.Element
+    onClick?: Function
 }
 
 interface StyleProps {
     density?: number,
     border?: string,
     width?: string,
+    bgColor?: string
 }
 
-const generateStyle = ({ density = 0, border, width }: StyleProps) => css(`
+const generateStyle = ({ density = 0, border, width, bgColor }: StyleProps) => css(`
     width: ${width || '32rem'}
     box-shadow: ${boxShadow[density]};
     padding: 10px;
+    background-color: ${bgColor || '#fff'}
     border: ${border ? border : ''};
 `)
 
-const Panel = ({ children, ...props }: Props) => {
+const Panel = ({ children, onClick, ...props }: Props) => {
     const style = generateStyle(props)
-    return <div className={style}>{children}</div>
+    return <div className={style} onClick={() => onClick ? onClick() : {}}>{children}</div>
 }
 
 export default Panel

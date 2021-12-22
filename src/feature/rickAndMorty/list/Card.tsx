@@ -7,14 +7,18 @@ import Text from "../../../components/apresentation/Text"
 import Flex from "../../../components/structure/Flex"
 import FlexItem from "../../../components/structure/FlexItem"
 import { Character } from '../../../utils/graphql/query/rickAndMorty/schema'
+import { useModalDispatch } from '../../../utils/redux/modal/hooks'
+import { open } from '../../../utils/redux/modal/slice'
 
 interface Props {
     character: Character,
 }
 
 const Card = ({ character }: Props) => {
+    const dispatch = useModalDispatch()
+
     return (
-        <Panel >
+        <Panel onClick={() => dispatch(open())}>
             <Flex justify='flex-start' align='flex-start'>
                 <FlexItem flex={2}>
                     <Avatar src={character?.image} alt={`${character?.name} Image`} />
