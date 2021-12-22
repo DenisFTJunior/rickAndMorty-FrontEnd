@@ -1,13 +1,9 @@
 import { css } from "@emotion/css"
 import React from "react"
 
-interface Props extends StyleProps {
+interface Props {
     src: string,
     alt: string,
-}
-
-interface StyleProps {
-    [propName: string]: any
 }
 
 const style = css(`
@@ -15,8 +11,8 @@ const style = css(`
     height:100%;
 `)
 
-const Avatar = ({ children, src, alt, ...props }: Props) => {
-    return <img src={src} className={style} />
+const Avatar = ({ src, alt }: Props) => {
+    return <img src={src} alt={alt} className={style} />
 }
 
 export default Avatar

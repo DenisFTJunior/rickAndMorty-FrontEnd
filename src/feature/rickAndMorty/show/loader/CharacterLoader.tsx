@@ -8,14 +8,14 @@ const { Provider } = Context
 export const useCharactorState: Function = () => useContext(Context)
 export const useCharactor: Function = () => useCharactorState()?.charactor
 
-const CharacterLoader = () => {
+const CharacterLoader = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   const { data, loading, error } = useCharacterQuery()
 
   if (loading) return <>Loading...</>
 
   return (
     <Provider value={data}>
-
+      {children}
     </Provider>
   )
 }

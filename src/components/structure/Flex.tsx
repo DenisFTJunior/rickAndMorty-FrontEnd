@@ -7,7 +7,7 @@ interface Props extends StyleProps {
 
 interface StyleProps {
     direction?: string
-    wrap?: string
+    wrap?: boolean
     justify?: string
     align?: string
     alignContent?: string
@@ -17,11 +17,11 @@ interface StyleProps {
 const generateStyle = ({ direction, wrap, justify, align, alignContent, gap }: StyleProps) => css(`
     display: flex;
     flex-direction: ${direction || 'row'};
-    flex-wrap: ${wrap || 'nowrap'};
+    ${wrap ? 'flex-wrap:wrap;' : 'flex-wrap: nowrap;'}
     justify-content: ${justify || 'center'};
     align-items: ${align || 'center'};
     align-content: ${alignContent || 'flex-start'};
-    gap: ${gap || 0};
+    gap: ${`${gap}rem` || 0};
 `)
 
 const Flex = (props: Props) => {
