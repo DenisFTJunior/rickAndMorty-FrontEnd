@@ -1,19 +1,20 @@
 import { css } from '@emotion/css'
-import React from 'react'
+import React, { Children } from 'react'
 import Flex from '../structure/Flex'
 import FlexItem from '../structure/FlexItem'
 import Text from './Text'
 
 interface Props extends StyleProps {
     label: string
-    text: string
+    text?: string
+    children?: JSX.Element | JSX.Element[]
 }
 
 interface StyleProps {
     right?: boolean
 }
 
-const Label = ({ right, label, text }: Props) => {
+const Label = ({ right, label, text, children }: Props) => {
     return (
         <Flex justify='flex-start' align='flex-start' gap={.7}>
             {right ? (
@@ -28,6 +29,9 @@ const Label = ({ right, label, text }: Props) => {
             <FlexItem>
                 <Text size='md'>{text}</Text>
             </FlexItem>
+            <Flex justify='space-between'>
+                {children ? children : <></>}
+            </Flex>
         </Flex>
     )
 }

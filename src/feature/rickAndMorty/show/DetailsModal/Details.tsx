@@ -1,4 +1,5 @@
 import React from 'react'
+import Label from '../../../../components/apresentation/Label'
 
 import Flex from '../../../../components/structure/Flex'
 import FlexItem from '../../../../components/structure/FlexItem'
@@ -10,19 +11,22 @@ const Details = () => {
     return (
         <Flex justify='flex-start' wrap>
             <FlexItem>
-                <Text></Text>
+                <Label label='Species' text={charactor.species} />
             </FlexItem>
             <FlexItem>
-                {/* TYPE */}
+                <Label label='Type' text={charactor.type} />
             </FlexItem>
             <FlexItem>
-                {/* LOCATION 3 SUB ITENS */}
+                <Label label='Location'>
+                    <Text>{`Name: ${charactor.origin.name}`}</Text>
+                    <Text>{`Dimension: ${charactor.origin.dimension}`}</Text>
+                </Label>
             </FlexItem>
             <FlexItem>
-                {/* GENDER */}
+                <Label label='Gender' text={charactor.gender} />
             </FlexItem>
             <FlexItem>
-                {/* STATUS */}
+                <Label label='Status' text={charactor.status} />
             </FlexItem>
         </Flex>
     )
