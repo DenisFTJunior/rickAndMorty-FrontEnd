@@ -1,18 +1,18 @@
 import ModalCloseButton from "./ModalCloseButton"
-import ModalPanel from "./ModalPanel"
 import ModalWrapper from "./ModalWrapper"
 
 interface Props {
     children: JSX.Element[] | JSX.Element
+    onClose?: Function
+    color?: string
+    width?: string
 }
 
-const Modal = ({ children }: Props) => {
+const Modal = ({ children, onClose, color, width }: Props) => {
     return (
-        <ModalWrapper>
-            <ModalPanel>
-                <ModalCloseButton />
-                <>{children}</>
-            </ModalPanel>
+        <ModalWrapper width={width}>
+            <ModalCloseButton color={color} onClick={onClose} />
+            <>{children}</>
         </ModalWrapper>)
 }
 

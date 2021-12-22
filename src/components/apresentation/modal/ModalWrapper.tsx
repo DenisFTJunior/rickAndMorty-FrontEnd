@@ -12,6 +12,7 @@ const styleWrapper = css(`
     left:0;
     right:0;
     background-color:#000070;
+    z-index: 1000;
 `)
 
 const ModalWrapper = ({ children, ...props }: WrapperProps) => {

@@ -1,11 +1,20 @@
 import { css } from "@emotion/css";
 import React from 'react'
 
-interface Props {
-    [propName: string]: any,
+interface Props extends StyleProps {
     children: JSX.Element[] | JSX.Element
 }
-const generateStyle = ({ direction, wrap, justify, align, alignContent, gap }: Props) => css(`
+
+interface StyleProps {
+    direction?: string
+    wrap?: string
+    justify?: string
+    align?: string
+    alignContent?: string
+    gap?: number
+}
+
+const generateStyle = ({ direction, wrap, justify, align, alignContent, gap }: StyleProps) => css(`
     display: flex;
     flex-direction: ${direction || 'row'};
     flex-wrap: ${wrap || 'nowrap'};

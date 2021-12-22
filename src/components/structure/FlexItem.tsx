@@ -1,17 +1,28 @@
 import { css } from "@emotion/css";
 import React from 'react'
 
-interface Props {
-    [propName: string]: any,
+interface Props extends StyleProps {
     children: JSX.Element[] | JSX.Element
 }
 
-const generateStyle = ({ flex, align, order, grow, shrink }: Props) => css(`
+interface StyleProps {
+    flex?: string
+    wrap?: string
+    shrink?: string
+    width?: string
+    align?: string
+    grow?: number
+    order?: number
+}
+
+
+const generateStyle = ({ flex, align, order, grow, shrink, width }: Props) => css(`
     flex: ${flex || 1};
     align-self: ${align || 'center'};
     order: ${order || 0};
     flex-grow: ${grow || 1};
     flex-grow: ${shrink};
+    width: ${width || '100%'};
 `)
 
 const FlexItem = (props: Props) => {
