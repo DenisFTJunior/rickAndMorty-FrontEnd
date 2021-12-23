@@ -24,8 +24,8 @@ const generateStyle = ({ flex, align, order, grow, shrink, width, height, margin
     flex-grow: ${grow || 1};
     flex-grow: ${shrink};
     width: ${width || '100%'};
-    height: ${width || '100%'};
-    margin: ${margin || `1rem`};
+    height: ${height || '100%'};
+    margin: ${margin || `0`};
 `)
 
 const FlexItem = (props: Props) => {

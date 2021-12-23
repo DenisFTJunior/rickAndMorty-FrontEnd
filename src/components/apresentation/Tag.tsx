@@ -1,5 +1,7 @@
 import { css } from '@emotion/css'
 import React from 'react'
+import Flex from '../structure/Flex'
+import Relative from '../structure/Relative'
 
 import Text from './Text'
 
@@ -13,17 +15,25 @@ interface StyleProps {
 }
 
 const generateStyle = ({ bgColor }: StyleProps) => css(`
-    display:inline-block;
+    display:flex;
+    width:4rem;
+    height:2rem;
+    justify-content: center;
+    align-items: center;
     background-color: ${bgColor || '#E0E0E0'};
-    margin:0.2rem;
+    padding:0.5rem;
 `)
 
 const Tag = ({ label, color, ...props }: Props) => {
     const style = generateStyle(props)
     return (
-        <div className={style}>
-            <Text element='h5' color={color}>{label}</Text>
-        </div>
+        <Relative top='.2rem' right='.2rem'>
+            <div className={style}>
+
+                <Text element='h5' color={color}>{label}</Text>
+
+            </div>
+        </Relative>
     )
 }
 

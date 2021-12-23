@@ -1,4 +1,5 @@
 import React from 'react'
+import { Provider } from "react-redux"
 
 import Avatar from "../../../components/apresentation/Avatar"
 import Panel from "../../../components/apresentation/Panel"
@@ -9,6 +10,7 @@ import FlexItem from "../../../components/structure/FlexItem"
 import { Character } from '../../../utils/graphql/query/rickAndMorty/schema'
 import { useModalDispatch } from '../../../utils/redux/modal/hooks'
 import { open } from '../../../utils/redux/modal/slice'
+import modalStore from '../../../utils/redux/modal/store'
 
 interface Props {
     character: Character,
@@ -16,35 +18,44 @@ interface Props {
 
 const Card = ({ character }: Props) => {
     const dispatch = useModalDispatch()
+    console.log(character.species)
 
     return (
-        <Panel onClick={() => dispatch(open())}>
+        <Panel width='25rem' onClick={() => dispatch(open())}>
             <Flex justify='flex-start' align='flex-start'>
-                <FlexItem flex={2}>
-                    <Avatar src={character?.image} alt={`${character?.name} Image`} />
+                <FlexItem flex={1} width='10rem' height='10rem'>
+                    <Avatar size='100%' src={character?.image} alt={`${character?.name} Image`} />
                 </FlexItem>
-                <Flex justify='flex-start' align='flex-start' direction='column'>
-                    <FlexItem flex={1}>
-                        <Flex justify='flex-start' align='flex-start'>
-                            <Text bold underline size='md'>{character?.name}</Text>
-                            <FlexItem flex={1} align='flex-end'>
-                                <Tag label={character.status} />
-                            </FlexItem>
-                        </Flex>
-                    </FlexItem>
-                    <FlexItem flex={1}>
-                        <Text>{character?.species}</Text>
-                    </FlexItem>
-                    <FlexItem flex={1}>
-                        <Text>{character?.gender}</Text>
-                    </FlexItem>
-                    <FlexItem flex={1} align='flex-end'>
-                        <Text italic>{character?.created}</Text>
-                    </FlexItem>
-                </Flex>
+                <FlexItem margin='0 1rem'>
+                    <Flex justify='flex-start' align='flex-start' direction='column'>
+                        <FlexItem flex={1} width='15rem'>
+                            <Flex justify='flex-start' align='center'>
+                                <FlexItem flex={1}>
+                                    <Text bold underline size='md'>{character?.name}</Text>
+                                </FlexItem>
+                                <FlexItem flex={1}>
+                                    <Tag label={character.status} />
+                                </FlexItem>
+                            </Flex>
+                        </FlexItem>
+                        <FlexItem flex={1}>
+                            <Text size='xsm'>{character?.species}</Text>
+                        </FlexItem>
+                        <FlexItem flex={1}>
+                            <Text>{character?.gender}</Text>
+                        </FlexItem>
+                        <FlexItem flex={1} align='flex-end'>
+                            <Text italic size='xsm'>{character?.created}</Text>
+                        </FlexItem>
+                    </Flex>
+                </FlexItem>
             </Flex >
         </Panel >
     )
 }
 
-export default Card
+const Wrapper = ({ character }: Props) => {
+    return <Provider store={modalStore}><Card character={character} /></Provider>
+}
+
+export default Wrapper

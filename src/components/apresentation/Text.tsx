@@ -14,6 +14,7 @@ interface Props {
     size?: string,
     underline?: boolean,
     element?: string
+    [propName: string]: any
 }
 
 const generateStyle = ({ color, size, underline }: Props) => css(`
@@ -25,28 +26,27 @@ const generateStyle = ({ color, size, underline }: Props) => css(`
 const Text = (props: Props) => {
     const style = generateStyle(props)
     switch (props.element) {
-        case 'h1': return <h1 className={style} />
-        case 'h2': return <h2 className={style} />
-        case 'h3': return <h3 className={style} />
-        case 'h4': return <h4 className={style} />
-        case 'h5': return <h5 className={style} />
-        case 'h6': return <h6 className={style} />
-        case 'p': return <p className={style} />
-        case 'span': return <span className={style} />
-        default: return <h3 className={style} />
+        case 'h1': return <h1 className={style} >{props.children}</h1>
+        case 'h2': return <h2 className={style} >{props.children}</h2>
+        case 'h3': return <h3 className={style} >{props.children}</h3>
+        case 'h4': return <h4 className={style} >{props.children}</h4>
+        case 'h5': return <h5 className={style} >{props.children}</h5>
+        case 'h6': return <h6 className={style} >{props.children}</h6>
+        case 'p': return <p className={style} >{props.children}</p>
+        case 'span': return <span className={style}>{props.children}</span>
+        default: return <h3 className={style}>{props.children}</h3>
     }
 }
 
 interface WrapperProps extends Props {
     bold?: boolean,
     italic?: boolean,
-    [propName: string]: any
 }
 
-const WrapperText = ({ bold, italic, ...props }: WrapperProps) => {
-    if (bold) return <b><Text {...props} /></b>
-    if (italic) return <i><Text {...props} /></i>
-    return <Text {...props} />
+const WrapperText = ({ bold, italic, children, ...props }: WrapperProps) => {
+    if (bold) return <b><Text {...props} >{children}</Text></b>
+    if (italic) return <i><Text {...props} >{children}</Text></i>
+    return <Text {...props} >{children}</Text>
 }
 
 export default WrapperText

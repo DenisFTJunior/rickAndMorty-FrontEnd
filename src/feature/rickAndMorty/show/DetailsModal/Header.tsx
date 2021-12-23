@@ -14,8 +14,8 @@ const Header = () => {
     const image = prop('image', charactor)
     return (
         <Flex justify='flex-start'>
-            <FlexItem width='20%' height='30%'>
-                <Avatar src={image} alt={name} />
+            <FlexItem width='20%' height='20%'>
+                <Avatar size='20%' src={image} alt={name} />
             </FlexItem>
             <FlexItem>
                 <Text size='lg' bold> {name} </Text>

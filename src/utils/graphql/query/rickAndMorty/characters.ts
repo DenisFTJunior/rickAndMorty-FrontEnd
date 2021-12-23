@@ -5,19 +5,21 @@ import { Characters } from './schema'
 const QUERY = gql`
   query Characters {
     characters {
-      id
-      name
-      status
-      species
-      type
-      gender
-      origin {
+      results{
         id
         name
-        dimension
+        status
+        species
+        type
+        gender
+        origin {
+          id
+          name
+          dimension
+        }
+        image
+        created
       }
-      image
-      created
     }
   }
 `
