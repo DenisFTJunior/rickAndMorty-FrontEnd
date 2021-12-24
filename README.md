@@ -18,7 +18,6 @@ Whats is used to create this front
 - Emotion
 - CSS-IN-JS
 
-### `TESTS`
+### `TESTS` not done yet
 - jest
 - react testing library
-- not done yet
