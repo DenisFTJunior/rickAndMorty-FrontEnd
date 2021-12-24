@@ -16,3 +16,7 @@ Whats is used to create this front
 ### `CSS`
 - Emotion
 - CSS-IN-JS
+
+### `TESTS`
+- jest
+- react testing library
