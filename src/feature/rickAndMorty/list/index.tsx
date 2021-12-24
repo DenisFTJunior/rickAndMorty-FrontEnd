@@ -1,5 +1,6 @@
 import { map } from 'ramda'
 import React from 'react'
+import Background from '../../../animation/rickAndMorty/Background'
 
 import Flex from '../../../components/structure/Flex'
 import Card from './Card'
@@ -13,7 +14,15 @@ const CharactersList = () => {
 }
 
 const Wrapper = () => {
-    return <CharactersLoader><Flex wrap><CharactersList /></Flex></CharactersLoader>
+    return (
+        <Background>
+            <CharactersLoader>
+                <Flex wrap>
+                    <CharactersList />
+                </Flex>
+            </CharactersLoader>
+        </Background>
+    )
 }
 
 export default Wrapper

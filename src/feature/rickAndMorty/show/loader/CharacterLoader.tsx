@@ -1,5 +1,6 @@
 import React, { createContext, useContext } from "react"
 
+import Loading from "../../../../animation/Loading"
 import useCharacterQuery from "../../../../utils/graphql/query/rickAndMorty/character"
 import { Character } from "../../../../utils/graphql/query/rickAndMorty/schema"
 
@@ -11,7 +12,7 @@ export const useCharactor: Function = () => useCharactorState()?.charactor
 const CharacterLoader = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   const { data, loading, error } = useCharacterQuery()
 
-  if (loading) return <>Loading...</>
+  if (loading) return <Loading />
 
   return (
     <Provider value={data}>

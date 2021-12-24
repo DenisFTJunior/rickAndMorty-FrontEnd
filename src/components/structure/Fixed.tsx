@@ -1,8 +1,26 @@
 import { css } from "@emotion/css";
 import React from 'react'
 
-const style = css(`position:fixed`)
+interface StyleProps {
+    top?: string
+    left?: string
+    right?: string
+    bottom?: string
+}
 
-const Fixed = ({ children }: { children: JSX.Element[] | JSX.Element }) => <div className={style}>{children}</div>
+interface Props extends StyleProps { children: JSX.Element[] | JSX.Element }
+
+const generateStyle = ({ top, left, right, bottom }: StyleProps) => css(`
+    position:fixed;
+    top:${top};
+    left:${left};
+    right:${right};
+    bottom:${bottom};`
+)
+
+const Fixed = ({ children, ...props }: Props) => {
+    const style = generateStyle(props)
+    return < div className={style} > {children}</div >
+}
 
 export default Fixed

@@ -27,13 +27,9 @@ const generateStyle = ({ bgColor }: StyleProps) => css(`
 const Tag = ({ label, color, ...props }: Props) => {
     const style = generateStyle(props)
     return (
-        <Relative top='.2rem' right='.2rem'>
-            <div className={style}>
-
-                <Text element='h5' color={color}>{label}</Text>
-
-            </div>
-        </Relative>
+        <div className={style}>
+            <Text element='h5' color={color}>{label}</Text>
+        </div>
     )
 }
 

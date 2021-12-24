@@ -22,7 +22,6 @@ interface StyleProps {
 const generateStyle = ({ density = 0, border, width, bgColor }: StyleProps) => css(`
     width: ${width || '32rem'};
     box-shadow: ${boxShadow[density]};
-    padding: 10px;
     background-color: ${bgColor || '#fff'};
     border: ${border ? border : ''};
     margin:1rem;

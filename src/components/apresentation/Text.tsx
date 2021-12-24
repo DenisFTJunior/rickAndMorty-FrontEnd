@@ -17,10 +17,11 @@ interface Props {
     [propName: string]: any
 }
 
-const generateStyle = ({ color, size, underline }: Props) => css(`
-    color: ${color ? color : '#222222'}
-    size:${size ? textSize[size] : textSize['sm']}
+const generateStyle = ({ color, size, underline, margin }: Props) => css(`
+    color: ${color ? color : '#222222'};
+    font-size:${size ? textSize[size] ? textSize[size] : size : textSize['sm']};
     text-decoration: ${underline ? 'underline' : 'none'};
+    margin: ${margin || 0};
 `)
 
 const Text = (props: Props) => {
