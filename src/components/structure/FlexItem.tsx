@@ -19,7 +19,7 @@ interface StyleProps {
 
 const generateStyle = ({ flex, align, order, grow, shrink, width, height, margin }: Props) => css(`
     flex: ${flex || 1};
-    align-self: ${align || 'center'};
+    align-self: ${align};
     order: ${order || 0};
     flex-grow: ${grow || 1};
     flex-grow: ${shrink};

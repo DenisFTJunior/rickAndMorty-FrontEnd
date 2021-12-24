@@ -26,18 +26,18 @@ const Card = ({ character }: Props) => {
     return (
         <Link onClick={() => dispatch(open({ id: character.id, modal: 'show' }))}>
             <Panel width='25rem'>
-                <Flex justify='flex-start' align='flex-start'>
-                    <FlexItem flex={1} width='10rem' height='10rem'>
+                <Flex justify='flex-start' align='center'>
+                    <FlexItem flex={1} width='10rem' height='10rem' align='center'>
                         <Avatar size='100%' src={character?.image} alt={`${character?.name} Image`} />
                     </FlexItem>
-                    <FlexItem margin='0 1rem'>
+                    <FlexItem margin='0 1rem' >
                         <Flex justify='flex-start' align='flex-start' direction='column'>
                             <FlexItem flex={1} width='15rem'>
                                 <Flex justify='flex-start' align='center'>
                                     <FlexItem flex={3} width='10rem'>
                                         <Text bold size='1.5rem'>{character?.name}</Text>
                                     </FlexItem>
-                                    <FlexItem flex={1}>
+                                    <FlexItem flex={1} align='center'>
                                         <Absolute>
                                             <Relative bottom='2rem' left='5rem'>
                                                 <Tag label={character.status} />

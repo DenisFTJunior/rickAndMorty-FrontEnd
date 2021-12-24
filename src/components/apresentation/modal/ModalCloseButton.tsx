@@ -9,8 +9,8 @@ import { close } from '../../../utils/redux/modal/slice'
 
 const style = css(`
     position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    top: 2rem;
+    right: 3rem;
     height: 2rem;
     width: 2rem;
     padding: 0.2rem;

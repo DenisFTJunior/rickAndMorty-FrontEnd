@@ -12,11 +12,11 @@ const DetailsModal = () => {
     return (
         <Modal width='55rem' name='show'>
             <CharacterLoader>
-                <Flex direction='column' justify='flex-start'>
-                    <FlexItem>
+                <Flex align='flex-start' justify='flex-start' direction='column' >
+                    <FlexItem margin='1rem'>
                         <Header />
                     </FlexItem>
-                    <FlexItem>
+                    <FlexItem margin='1rem'>
                         <Details />
                     </FlexItem>
                 </Flex>

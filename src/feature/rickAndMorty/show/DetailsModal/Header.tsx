@@ -12,13 +12,13 @@ const Header = () => {
     // Character info
     const name = prop('name', character)
     const image = prop('image', character)
-    console.log('character', character)
+
     return (
-        <Flex justify='flex-start'>
-            <FlexItem width='20%' height='20%'>
-                <Avatar size='20%' src={image} alt={name} />
+        <Flex justify='flex-start' align='flex-start'>
+            <FlexItem grow={1}>
+                <Avatar size='100%' src={image} alt={name} roundAvatar/>
             </FlexItem>
-            <FlexItem>
+            <FlexItem grow={4} margin='0 1rem' align='center'>
                 <Text size='lg' bold> {name} </Text>
             </FlexItem>
         </Flex>

@@ -9,23 +9,20 @@ import { useCharacter } from '../loader/CharacterLoader'
 const Details = () => {
     const character = useCharacter()
     return (
-        <Flex justify='flex-start' wrap>
-            <FlexItem>
+        <Flex justify='flex-start' align='flex-start' wrap>
+            <FlexItem margin='1rem'>
                 <Label label='Species' text={character?.species} />
             </FlexItem>
-            <FlexItem>
+            <FlexItem margin='1rem'>
                 <Label label='Type' text={character?.type} />
             </FlexItem>
-            <FlexItem>
-                <Label label='Location'>
-                    <Text>{`Name: ${character?.origin.name}`}</Text>
-                    <Text>{`Dimension: ${character?.origin.dimension}`}</Text>
-                </Label>
+            <FlexItem margin='1rem'>
+                <Label label='Location' text={character?.origin.name} />
             </FlexItem>
-            <FlexItem>
+            <FlexItem margin='1rem'>
                 <Label label='Gender' text={character?.gender} />
             </FlexItem>
-            <FlexItem>
+            <FlexItem margin='1rem'>
                 <Label label='Status' text={character?.status} />
             </FlexItem>
         </Flex>

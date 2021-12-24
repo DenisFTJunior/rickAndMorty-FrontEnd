@@ -1,37 +1,32 @@
-import { css } from '@emotion/css'
-import React, { Children } from 'react'
+import React from 'react'
+import { isVoid } from '../../utils/validate/validators/void'
 import Flex from '../structure/Flex'
 import FlexItem from '../structure/FlexItem'
 import Text from './Text'
 
-interface Props extends StyleProps {
+interface Props {
     label: string
     text?: string
     children?: JSX.Element | JSX.Element[]
 }
 
-interface StyleProps {
-    right?: boolean
-}
 
-const Label = ({ right, label, text, children }: Props) => {
+const Label = ({ label, text, children }: Props) => {
     return (
-        <Flex justify='flex-start' align='flex-start' gap={.7}>
-            {right ? (
-                <FlexItem margin='0 0 0 auto'>
-                    <Text size='0.75rem'>{label}</Text>
-                </FlexItem>
-            ) : (
-                <FlexItem>
-                    <Text size='0.75rem'>{label}</Text>
-                </FlexItem>
-            )}
+        <Flex justify='flex-start' align='flex-start' direction='column' gap={.7}>
             <FlexItem>
-                <Text size='1.5rem'>{text}</Text>
+                <Text element='span' size='0.75rem'>{label}</Text>
             </FlexItem>
-            <Flex justify='space-between'>
+
+            {!!text ?
+                <FlexItem>
+                    <Text size='1.5rem'>{!isVoid(text) ? text : 'unknown'}</Text>
+                </FlexItem>
+                : <></>
+            }
+            <FlexItem>
                 {children ? children : <></>}
-            </Flex>
+            </FlexItem>
         </Flex>
     )
 }
