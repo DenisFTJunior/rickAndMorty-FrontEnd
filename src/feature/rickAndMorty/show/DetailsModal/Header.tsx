@@ -5,13 +5,14 @@ import Avatar from '../../../../components/apresentation/Avatar'
 import Text from '../../../../components/apresentation/Text'
 import Flex from '../../../../components/structure/Flex'
 import FlexItem from '../../../../components/structure/FlexItem'
-import { useCharactor } from '../loader/CharacterLoader'
+import { useCharacter } from '../loader/CharacterLoader'
 
 const Header = () => {
-    const charactor = useCharactor()
+    const character = useCharacter()
     // Character info
-    const name = prop('name', charactor)
-    const image = prop('image', charactor)
+    const name = prop('name', character)
+    const image = prop('image', character)
+    console.log('character', character)
     return (
         <Flex justify='flex-start'>
             <FlexItem width='20%' height='20%'>

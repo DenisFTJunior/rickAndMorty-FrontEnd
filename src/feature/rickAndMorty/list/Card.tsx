@@ -24,7 +24,7 @@ const Card = ({ character }: Props) => {
     const dispatch = useModalDispatch()
 
     return (
-        <Link onClick={() => dispatch(open())}>
+        <Link onClick={() => dispatch(open({ id: character.id, modal: 'show' }))}>
             <Panel width='25rem'>
                 <Flex justify='flex-start' align='flex-start'>
                     <FlexItem flex={1} width='10rem' height='10rem'>

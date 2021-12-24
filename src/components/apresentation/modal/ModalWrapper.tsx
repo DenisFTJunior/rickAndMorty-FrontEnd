@@ -1,9 +1,10 @@
 import { css } from '@emotion/css'
 import React from 'react'
 
-import { useModalDispatch } from '../../../utils/redux/modal/hooks'
+import { useModalDispatch, useModalSelector } from '../../../utils/redux/modal/hooks'
 import { close } from '../../../utils/redux/modal/slice'
 import Flex from '../../structure/Flex'
+import ModalCloseButton from './ModalCloseButton'
 import Modal from './ModalPanel'
 import { WrapperProps } from './_schema/ModalWrapper'
 
@@ -17,17 +18,20 @@ const styleWrapper = css(`
     z-index: 1000;
 `)
 
-const ModalWrapper = ({ children, ...props }: WrapperProps) => {
+const ModalWrapper = ({ children, name, color, onClose, ...props }: WrapperProps) => {
     const dispatch = useModalDispatch()
-    return (
-        <div className={styleWrapper} onClick={() => dispatch(close())}>
+    const isOpen = useModalSelector(state => state.open)
+    if (isOpen) return (
+        <div className={styleWrapper} onClick={() => dispatch(close({ id: '', modal: name }))}>
             <Flex>
                 <Modal {...props}>
-                    {children}
+                    <ModalCloseButton color={color} onClose={onClose} modal={name} />
+                    <>{children}</>
                 </Modal>
             </Flex>
         </div>
     )
+    return <></>
 }
 
 export default ModalWrapper

@@ -19,15 +19,15 @@ const Label = ({ right, label, text, children }: Props) => {
         <Flex justify='flex-start' align='flex-start' gap={.7}>
             {right ? (
                 <FlexItem margin='0 0 0 auto'>
-                    <Text size='xsm'>{label}</Text>
+                    <Text size='0.75rem'>{label}</Text>
                 </FlexItem>
             ) : (
                 <FlexItem>
-                    <Text size='xsm'>{label}</Text>
+                    <Text size='0.75rem'>{label}</Text>
                 </FlexItem>
             )}
             <FlexItem>
-                <Text size='md'>{text}</Text>
+                <Text size='1.5rem'>{text}</Text>
             </FlexItem>
             <Flex justify='space-between'>
                 {children ? children : <></>}

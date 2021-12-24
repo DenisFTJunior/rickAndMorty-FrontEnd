@@ -5,6 +5,7 @@ import Background from '../../../animation/rickAndMorty/Background'
 import Flex from '../../../components/structure/Flex'
 import Card from './Card'
 import CharactersLoader, { useCharactors } from './loader/CharactersLoader'
+import DetailsModal from '../show/DetailsModal'
 
 const CharactersList = () => {
     const characters = useCharactors()
@@ -21,6 +22,7 @@ const Wrapper = () => {
                     <CharactersList />
                 </Flex>
             </CharactersLoader>
+            <DetailsModal />
         </Background>
     )
 }

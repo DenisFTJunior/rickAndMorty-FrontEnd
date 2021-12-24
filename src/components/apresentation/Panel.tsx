@@ -17,14 +17,15 @@ interface StyleProps {
     border?: string,
     width?: string,
     bgColor?: string
+    margin?: string
 }
 
-const generateStyle = ({ density = 0, border, width, bgColor }: StyleProps) => css(`
+const generateStyle = ({ density = 0, border, width, bgColor, margin }: StyleProps) => css(`
     width: ${width || '32rem'};
     box-shadow: ${boxShadow[density]};
     background-color: ${bgColor || '#fff'};
     border: ${border ? border : ''};
-    margin:1rem;
+    margin:${margin || "1rem"};
 `)
 
 const Panel = ({ children, onClick, ...props }: Props) => {

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 
 import Button from '../../action/Button'
 import { CloseButtonProps } from "./_schema/ModalCloseButton"
+import { close } from '../../../utils/redux/modal/slice'
 
 const style = css(`
     position: absolute;
@@ -15,18 +16,18 @@ const style = css(`
     padding: 0.2rem;
 `)
 
-const ModalCloseButton = ({ onClose, color }: CloseButtonProps) => {
+const ModalCloseButton = ({ onClose, color, modal }: CloseButtonProps) => {
     const dispatch = useDispatch()
 
     const handleClick = () => {
         if (onClose) onClose()
-        dispatch(close())
+        dispatch(close({ id: '', modal }))
     }
 
     return (
         <div className={style}>
             <Button bgColor='#ffffff80' onClick={handleClick}>
-                <BsX size="2rem" color={color || '#fff'} />
+                <BsX size="2rem" color={color || '#000'} />
             </Button>
         </div>
     )

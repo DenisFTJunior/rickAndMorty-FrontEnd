@@ -11,13 +11,14 @@ interface Props {
     onClose?: Function
     color?: string
     width?: string
+    name: string
+    margin?: string
 }
 
-const Modal = ({ children, onClose, color, width }: Props) => {
+const Modal = ({ children, ...props }: Props) => {
     return (
         <Provider store={modalStore}>
-            <ModalWrapper width={width}>
-                <ModalCloseButton color={color} onClose={onClose} />
+            <ModalWrapper {...props}>
                 <>{children}</>
             </ModalWrapper>
         </Provider>
