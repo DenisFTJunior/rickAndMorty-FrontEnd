@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react"
 
-import Loading from "../../../../animation/Loading"
+import SmallLoading from "../../../../animation/SmallLoading"
 import useCharacterQuery from "../../../../utils/graphql/query/rickAndMorty/character"
 import { Character } from "../../../../utils/graphql/query/rickAndMorty/schema"
 import { useModalSelector } from "../../../../utils/redux/modal/hooks"
@@ -13,7 +13,7 @@ export const useCharacter: Function = () => useCharacterState()?.character
 const CharacterLoader = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   const id = useModalSelector(state => state.data.id)
   const { data, loading, error } = useCharacterQuery({ id })
-  if (loading) return <Loading />
+  if (loading) return <SmallLoading />
 
   return (
     <Provider value={data}>
