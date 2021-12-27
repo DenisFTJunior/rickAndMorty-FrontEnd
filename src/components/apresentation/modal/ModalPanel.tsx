@@ -6,7 +6,7 @@ import { PanelProps } from "./_schema/ModalPanel"
 
 const style = css(`
     position: relative;
-    z-index:1001;
+    z-index:2001;
 `)
 
 

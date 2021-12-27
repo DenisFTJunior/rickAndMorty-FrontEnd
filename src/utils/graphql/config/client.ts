@@ -1,6 +1,21 @@
 import { ApolloClient, DefaultOptions, InMemoryCache } from "@apollo/client";
 
-export const cache = new InMemoryCache()
+export const cache = new InMemoryCache(
+    // {
+    //     typePolicies: {
+    //         Query: {
+    //             fields: {
+    //                 characters: {
+    //                     keyArgs: false,
+    //                     merge(existing = [], incoming) {
+    //                         return [...existing, ...incoming];
+    //                     },
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+)
 
 const defaultOptions: DefaultOptions = {
     watchQuery: {

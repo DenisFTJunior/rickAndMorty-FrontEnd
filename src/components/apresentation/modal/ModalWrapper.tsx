@@ -21,7 +21,8 @@ const styleWrapper = css(`
 const ModalWrapper = ({ children, name, color, onClose, ...props }: WrapperProps) => {
     const dispatch = useModalDispatch()
     const isOpen = useModalSelector(state => state.open)
-    if (isOpen) return (
+    const modal = useModalSelector(state => state.data.modal)
+    if (isOpen && modal === name) return (
         <div className={styleWrapper} onClick={() => dispatch(close({ id: '', modal: name }))}>
             <Flex>
                 <Modal {...props}>

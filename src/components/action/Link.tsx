@@ -15,6 +15,7 @@ const generateStyle = ({ underline, color, disabled, hoverColor, hoverOpacity }:
     display: inline;
     text-decoration: ${underline ? 'underline' : 'none'};
 	color: ${color} !important;
+    cursor:pointer;
 
     &:hover {
       ${hoverOpacity ? `opacity: ${hoverOpacity};` : ''}

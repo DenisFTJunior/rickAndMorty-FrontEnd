@@ -1,10 +1,11 @@
 import { gql, useQuery } from '@apollo/client'
+import { usePageSelector } from '../../../redux/pageToLoad/hooks';
 import { RickAndMortyClient } from '../../config/client';
 import { Characters } from './schema'
 
 const QUERY = gql`
-  query Characters {
-    characters {
+  query Characters($page:Int) {
+    characters(page:$page) {
       results{
         id
         name
@@ -25,11 +26,12 @@ const QUERY = gql`
 `
 
 const useCharactersQuery = () => {
-
+  const page = usePageSelector(state => state.page)
   return useQuery<Characters>(QUERY, {
     fetchPolicy: 'network-only',
     nextFetchPolicy: 'cache-first',
-    client: RickAndMortyClient
+    client: RickAndMortyClient,
+    variables: { page }
   });
 
 

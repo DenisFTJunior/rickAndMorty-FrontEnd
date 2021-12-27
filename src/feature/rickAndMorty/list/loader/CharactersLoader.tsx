@@ -6,19 +6,24 @@ import { Characters } from "../../../../utils/graphql/query/rickAndMorty/schema"
 
 const Context = createContext({} as Characters | undefined)
 const { Provider } = Context
+const ActionContext = createContext({})
+const { Provider: ActionProvider } = ActionContext
+
 export const useCharactorsState: Function = () => useContext(Context)
 export const useCharactors: Function = () => useCharactorsState()?.characters.results
+export const useActionCharactors: Function = () => useContext(ActionContext)
 
-//create fetchMore
 const CharactersLoader = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
-  const { data, loading, error } = useCharactersQuery()
+  const { data, loading, error, fetchMore } = useCharactersQuery()
 
   if (loading) return <Loading />
 
   return (
-    <Provider value={data} >
-      {children}
-    </Provider>
+    <ActionProvider value={({ fetchMore })}>
+      <Provider value={data} >
+        {children}
+      </Provider>
+    </ActionProvider>
   )
 }
 
